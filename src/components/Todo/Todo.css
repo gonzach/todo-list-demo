@@ -29,10 +29,10 @@
     font-size: 1rem;
 }
 
-/* .ant-input:focus {
+.ant-input:focus {
     border-color: #ccc;
     outline: 0;
     -webkit-box-shadow: 0 0 0 2px rgba(87,168,233, .2);
     box-shadow: 0 0 0 2px rgba(87,168,233, .2);
 }
- */
+

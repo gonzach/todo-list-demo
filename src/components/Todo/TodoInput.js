@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
-import { Button, Input, Col } from 'antd';
+import { Input, Col } from 'antd';
 import 'antd/dist/antd.css';
-//import '../Todo/Todo.css';
 
 export default class TodoInput extends Component {
   state = {

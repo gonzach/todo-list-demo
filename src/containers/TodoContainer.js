@@ -32,16 +32,27 @@ const mapDispatchToProps =  dispatch => ({
     payload: todos
   }),
 
-    updateTodo: todos => {
-      TodoResource.updateTodo(todos)
-          .then(res => res.json())
-          .then(({id, status, content}) => {
-            dispatch({
-              type: 'UPDATE_TODO',
-              payload: {id, status, content}
-            })
+  updateTodo: todos => {
+    TodoResource.updateTodo(todos)
+        .then(res => res.json())
+        .then(({id, status, content}) => {
+          dispatch({
+            type: 'UPDATE_TODO',
+            payload: {id, status, content}
           })
-    }
+        })
+  },
+
+  // filterTodo: todos => {
+  //   TodoResource.updateTodo(todos)
+  //       .then(res => res.json())
+  //       .then(({status, content}) => {
+  //         dispatch({
+  //           type: 'FILTER_TODO',
+  //           payload: {status, content}
+  //         })
+  //       })
+  // }
 });
 
 export default connect(

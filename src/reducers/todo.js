@@ -36,6 +36,20 @@ export default (state = initialState, { type, payload }) => {
         ...state,
         todos: [...newTodos]
       };
+    
+    case "FILTER_TODO":
+      const getAllFilteredItem = state.todos.filter(todo => {
+        if(todo.status === payload.status){
+          return payload;
+        } else {
+          return todo; 
+        }
+      });
+      return {
+        ...state,
+        todos: [...getAllFilteredItem]
+      };
+
     default:
       return state
   }

@@ -21,8 +21,8 @@ export default class TodoWrapper extends Component {
     }
   };
 
-    updateTodoStatusWrapper = (id, status) => {
-      this.props.updateTodo(id, status);
+  updateTodoStatusWrapper = (id, status) => {
+    this.props.updateTodo(id, status);
   }
 
   render() {
