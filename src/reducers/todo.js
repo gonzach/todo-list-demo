@@ -1,6 +1,7 @@
 const initialState = {
   todos: [],
-  isOnlyActive: false
+  isOnlyActive: false,
+  isChecked: true
 };
 
 export default (state = initialState, { type, payload }) => {
@@ -20,9 +21,21 @@ export default (state = initialState, { type, payload }) => {
     case "SET_FILTER":
       return {
         ...state,
-        isOnlyActive: payload
+        isOnlyActive: payload,
       };
 
+    case "UPDATE_TODO":
+      const newTodos = state.todos.map(todo => {
+        if(todo.id === payload.id){
+          return payload;
+        } else {
+          return todo;
+        }
+      });
+      return {
+        ...state,
+        todos: [...newTodos]
+      };
     default:
       return state
   }

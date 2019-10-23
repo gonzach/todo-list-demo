@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './TodoItem.css';
+import { Checkbox } from 'antd';
+import 'antd/dist/antd.css';
 
 export default class TodoItem extends Component {
   constructor(props) {
@@ -13,7 +15,7 @@ export default class TodoItem extends Component {
     const { status } = this.state;
     const isCompleted = status === 'completed' ;
     this.props.onChange({...this.props.todo, status: isCompleted ? 'active': 'completed'});
-    this.setState({status: isCompleted ? 'active': 'completed'})
+    this.setState({status: isCompleted ? 'active': 'completed'});
   };
 
   render() {
@@ -23,8 +25,8 @@ export default class TodoItem extends Component {
       <div className="todo-item" onClick={this.changeValue}>
         <div>
           <label className="checkbox-label">
-            <input type="checkbox" checked={isCompleted} onChange={this.changeValue} />
-            <span className="checkbox-custom rectangular"/>
+            <Checkbox checked={isCompleted} onChange={this.changeValue} />
+            <span className=" rectacheckbox-customngular"/>
           </label>
         </div>
         <div className="content">

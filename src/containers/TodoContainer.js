@@ -5,7 +5,7 @@ import TodoResource from '../api/TodoResource.js';
 const mapStateToProps = state => ({
   isOnlyActive: state.todoResource.isOnlyActive,
   todos: state.todoResource.todos.filter(_ => {
-    return state.isOnlyActive
+    return state.isOnlyActive && state.isChecked
       ? _.status === 'active'
       : true
   })
@@ -25,11 +25,23 @@ const mapDispatchToProps =  dispatch => ({
           payload: {id, status, content}
         })
       })
+
   },
   refreshTodos: todos => dispatch({
     type: 'REFRESH_TODOS',
     payload: todos
-  })
+  }),
+
+    updateTodo: todos => {
+      TodoResource.updateTodo(todos)
+          .then(res => res.json())
+          .then(({id, status, content}) => {
+            dispatch({
+              type: 'UPDATE_TODO',
+              payload: {id, status, content}
+            })
+          })
+    }
 });
 
 export default connect(

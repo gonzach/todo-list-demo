@@ -1,4 +1,7 @@
 import React, {Component} from 'react'
+import { Button, Input, Col } from 'antd';
+import 'antd/dist/antd.css';
+//import '../Todo/Todo.css';
 
 export default class TodoInput extends Component {
   state = {
@@ -17,8 +20,10 @@ export default class TodoInput extends Component {
   render() {
     return (
       <div className="todo-input" >
-        <input type="text" value={this.state.inputValue} onChange={this.handleInputChange} />
-        <button onClick={this.dispatch}>add</button>
+        <Col span={20}>
+        <Input placeholder="Input Todo List" type="text" value={this.state.inputValue} onChange={this.handleInputChange} />
+        </Col>
+          <button type="primary" onClick={this.dispatch}>add</button>
       </div>
     )
   }
